@@ -7,3 +7,5 @@
 
 # 3. Zezwól też na śledzenie samego pliku .gitignore (dobra praktyka)
 !.gitignore
+!README.md
+!LICENSE.md
