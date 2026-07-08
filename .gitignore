@@ -1,0 +1,9 @@
+# 1. Ignoruj absolutnie wszystko w głównym katalogu!
+/*
+
+# 2. ALE zrób wyjątek dla tych konkretnych folderów:
+!/release/
+!/docs/
+
+# 3. Zezwól też na śledzenie samego pliku .gitignore (dobra praktyka)
+!.gitignore
