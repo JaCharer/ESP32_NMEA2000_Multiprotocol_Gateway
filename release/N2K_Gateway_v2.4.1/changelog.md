@@ -1,6 +1,12 @@
+# Changelog v2.4.1
+
+### Bug Fixes
+* **N2K Decoder Stability:** Fixed a critical multi-threading race condition (resulting in `LoadProhibited` / Guru Meditation Error crashes) that occurred when the Web UI or background garbage collector modified device routing rules while the CAN bus was actively receiving data.
+* **Routing Engine Optimization:** Completely overhauled the preferred source arbitration engine. Heavy, memory-intensive C++ structures (`std::unordered_map`) were replaced with an ultra-fast, pre-allocated micro-cache utilizing hardware spinlocks. This significantly reduces RAM consumption and ensures the CAN decoder never blocks or drops frames, even under heavy network load.
+* **Data Integrity Protection:** Resolved a hidden "torn read" issue where 64-bit device names could be read incorrectly by the 32-bit processor if updated mid-cycle. Configuration updates are now safely copied to a local snapshot buffer before processing, guaranteeing 100% thread safety without stalling the main decoder task.
+
+
 # Changelog v2.4.0
-
-
 ### New Features
 * **DC Source Support:** Full support for DC Sources has been added (PGNs 127506, 127508). A dedicated battery/alternator/sloar/generatoe card will automatically appear on the dashboard as soon as the relevant data starts flowing through the network.
 * **Smooth Instrument Dials (Damping):** Jumpy readings in rough seas are now a thing of the past. New sliders in the config allow for dynamic adjustments of how quickly the Wind, Heading, and Speed dials react to changes.
