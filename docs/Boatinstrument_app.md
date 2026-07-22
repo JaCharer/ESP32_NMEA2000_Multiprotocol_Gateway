@@ -73,4 +73,12 @@ The location of the configuration file depends on the operating system you are u
 
 Once the file is saved, simply restart the Boat Instrument app. The gauges will now expect the correct Signal K paths and display your data properly.
 
+### Important: Connection Limits and the "Two-Socket" Behavior
+If your gauges are configured correctly but the app completely fails to connect or periodically drops data, you might be hitting a strict connection limit on your gateway. By design, the Boat Instruments application inherently opens two simultaneous WebSocket connections to the Signal K server. When connecting to embedded micro-gateways, this behavior can quickly exhaust the available network slots. To ensure stable operation, you must manually allocate enough slots for the app on your gateway:
+
+Open your gateway's WebUI in a browser.
+Navigate to config -> ADVANCED & SYSTEM SETTINGS -> CONNECTION LIMITS (REQUIRES RESTART).
+
+Ensure that the maximum number of Signal K clients is set high enough to accommodate the app. You must reserve at least 2 slots for every single device running the Boat Instruments app. Save the configuration and restart the gateway.
+
 ---

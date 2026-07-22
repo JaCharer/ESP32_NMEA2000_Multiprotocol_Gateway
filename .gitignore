@@ -1,6 +1,7 @@
 # 1. Ignoruj absolutnie wszystko w głównym katalogu!
 /*
 
+
 # 2. ALE zrób wyjątek dla tych konkretnych folderów:
 !/release/
 !/docs/
@@ -9,3 +10,7 @@
 !.gitignore
 !README.md
 !LICENSE.md
+
+# 4. macOS zmienne systemowe
+.DS_Store
+**/.DS_Store
