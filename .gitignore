@@ -5,6 +5,7 @@
 # 2. ALE zrób wyjątek dla tych konkretnych folderów:
 !/release/
 !/docs/
+!/images/
 
 # 3. Zezwól też na śledzenie samego pliku .gitignore (dobra praktyka)
 !.gitignore

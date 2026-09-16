@@ -1,5 +1,11 @@
 # ESP32 NMEA2000 Multiprotocol Gateway
 
+<p>
+  <img src="images/tablet_pc/IMG_0009.png" alt="tablets & PC" hight="200">
+  <img src="images/smartphone/IMG_2465.png" alt="smartphone" hight="200">
+</p>
+
+
 This ESP32-based NMEA 2000 gateway reads marine CAN bus data and broadcasts it simultaneously over Wi-Fi as Signal K, NMEA 0183, and Actisense Binary streams. It includes an onboard AIS parser for Class A/B targets. The built-in WebGUI acts as a lightweight chartplotter and instrument display for live navigation, engine, and weather data.
 
 ---
