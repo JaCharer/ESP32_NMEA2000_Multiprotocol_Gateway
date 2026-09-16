@@ -1,8 +1,8 @@
 # ESP32 NMEA2000 Multiprotocol Gateway
 
 <p>
-  <img src="images/tablet_pc/IMG_0009.png" alt="tablets & PC" height="200">
-  <img src="images/smartphone/IMG_2465.png" alt="smartphone" height="200">
+  <img src="images/tablet_pc/IMG_0009.png" alt="tablets & PC" height="400">
+  <img src="images/smartphone/IMG_2465.png" alt="smartphone" height="400">
 </p>
 
 
