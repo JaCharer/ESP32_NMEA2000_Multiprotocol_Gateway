@@ -121,6 +121,7 @@ Signal K is a JSON-based marine data model widely used by modern navigation and 
 ### NMEA 0183
 
 NMEA 0183 is a legacy but still common marine protocol used by many chartplotters, instruments, and onboard displays. The gateway can publish NMEA 0183 sentences over TCP and UDP, allowing compatibility with older systems and software that does not support NMEA 2000 directly.
+NMEA 0183 is an output interface in the gateway: the gateway converts selected data from the NMEA 2000 bus into NMEA 0183 sentences. It does not provide a direct serial NMEA 0183 input, so older serial equipment cannot be connected to the gateway as an NMEA 0183 source without an additional network or protocol converter.
 
 ### Actisense Binary
 
@@ -224,6 +225,7 @@ The header bar shown on every page includes a row of status indicators — **GUI
 ## Main Dashboard
 
 The main dashboard is the primary working interface. It is designed to give the operator a compact overview of the vessel’s status and the most important navigation parameters in one screen.
+On desktop and tablet displays, the dashboard is divided into two areas: a fixed navigation panel occupying roughly two-thirds of the screen on the left, and a scrollable instrument column occupying roughly one-third on the right. On smaller screens, these areas are arranged vertically.
 
 ### Navigation Panel
 
@@ -248,7 +250,9 @@ Because the map, its fonts, and its tile imagery are loaded from external intern
 
 ### Wind and Speed Instruments
 
-This panel focuses on wind and speed information. It shows values such as:
+This panel is one of the cards in the scrollable right-hand instrument column on desktop and tablet displays. The column uses vertical scrolling to move between the Wind, Compass, AIS, Weather, engine, tank, power, and other cards that are available for the current data sources. On smaller screens, the same cards are arranged in the main vertical dashboard flow.
+
+The Wind card focuses on wind and speed information. It shows values such as:
 
 - apparent wind speed (AWS)
 - apparent wind angle (AWA)
@@ -288,7 +292,7 @@ When a target has a valid position, clicking or tapping its row scrolls the dash
 The Meteo card combines live sensor readings from the NMEA 2000 bus with an online weather forecast:
 
 - **Current (N2K)** – live readings taken directly from onboard sensors: Air Temperature, Atmospheric Pressure, and Water Temperature.
-- **Forecast** – once the vessel's GPS position is known, the dashboard automatically downloads an extended weather and sea-state forecast for the current location, refreshed roughly every 30 minutes (or retried every 5 minutes if the previous attempt failed). It shows conditions for **Now**, **+3 Hours**, **+12 Hours**, and **+24 Hours**, each with a sky icon and description, air temperature, wind speed and gusts (in knots) with direction, and wave height and direction. Sunrise and sunset times for the current day are shown below the forecast rows.
+- **Forecast** – once the vessel's GPS position is known, the dashboard automatically downloads an extended weather and sea-state forecast for the current GPS location, refreshed roughly every 30 minutes (or retried every 5 minutes if the previous attempt failed). The forecast is based on the latitude and longitude reported by the vessel's active GPS source; the current coordinates shown in the Navigation panel identify the location used. It shows conditions for **Now**, **+3 Hours**, **+12 Hours**, and **+24 Hours**, each with a sky icon and description, air temperature, wind speed and gusts (in knots) with direction, and wave height and direction. Sunrise and sunset times for the current day are shown below the forecast rows.
 
 Because the forecast is retrieved from an internet weather service, it requires the gateway or client device to have internet access; the "Current (N2K)" readings continue to work offline, from the vessel's own sensors.
 
@@ -322,7 +326,7 @@ As with tanks, each DC source can be given a custom display name; otherwise it i
 
 ### Live Data Cards
 
-The dashboard also contains a set of live data cards for parameters such as:
+The dashboard also contains live data values distributed across the navigation panel and the scrollable instrument cards. They cover parameters such as:
 
 - heading
 - course

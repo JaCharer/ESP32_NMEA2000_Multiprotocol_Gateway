@@ -12,7 +12,7 @@ This ESP32-based NMEA 2000 gateway reads marine CAN bus data and broadcasts it s
 
 ##  Key Features
 
-* **Triple-Protocol Streaming:** Simultaneously outputs Signal K (WebSockets), NMEA 0183 (TCP/UDP), and Actisense Binary (UDP).
+* **Triple-Protocol Streaming:** Simultaneously outputs Signal K (WebSockets), NMEA 0183 (TCP/UDP), and Actisense Binary (TCP/UDP).
 * **WebGUI Dashboard:** Responsive, browser-based glass-cockpit featuring tactical maps, true Course Over Ground (COG-T), engine gauges, wind instruments, and tank levels.
 * **Integrated AIS Parser:** Automatically processes and displays Class A (commercial) and Class B (leisure) targets on the map and data lists.
 * **Navigation Software Integration:** Works seamlessly with OpenCPN, Navionics, Avalon Offshore, and standard Signal K ecosystems.
