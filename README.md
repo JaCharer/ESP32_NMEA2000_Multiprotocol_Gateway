@@ -5,35 +5,64 @@
   <img src="images/smartphone/IMG_2465.png" alt="smartphone" height="200">
 </p>
 
+This project is an ESP32-based marine gateway for NMEA 2000 networks. It listens to the CAN bus, decodes navigation and engine data, and publishes it over multiple interfaces such as Signal K, NMEA 0183, and Actisense Binary. It also includes AIS parsing, filtering, and display functions for vessel targets and AIS Aids to Navigation (AtoN).
 
-This ESP32-based NMEA 2000 gateway reads marine CAN bus data and broadcasts it simultaneously over Wi-Fi as Signal K, NMEA 0183, and Actisense Binary streams. It includes an onboard AIS parser for Class A/B targets. The built-in WebGUI acts as a lightweight chartplotter and instrument display for live navigation, engine, and weather data.
+The firmware includes a built-in web dashboard for monitoring vessel status, routing sources, diagnostics, and basic navigation data in a compact browser-based GUI.
 
 ---
 
-##  Key Features
+## Key Features
 
-* **Triple-Protocol Streaming:** Simultaneously outputs Signal K (WebSockets), NMEA 0183 (TCP/UDP), and Actisense Binary (TCP/UDP).
-* **WebGUI Dashboard:** Responsive, browser-based glass-cockpit featuring tactical maps, true Course Over Ground (COG-T), engine gauges, wind instruments, and tank levels.
-* **Integrated AIS Parser:** Automatically processes and displays Class A (commercial) and Class B (leisure) targets on the map and data lists.
-* **Navigation Software Integration:** Works seamlessly with OpenCPN, Navionics, Avalon Offshore, and standard Signal K ecosystems.
-* **Offline Functionality:** The tactical instrument dashboard and basic navigation fully operate without an active internet connection.
+- Signal K output over WebSockets for marine software and apps (API and Delta over WebSocket)
+- NMEA 0183 output over TCP/UDP
+- Actisense Binary output for compatible navigation software over TCP/UDP
+- CAN bus decoding for NMEA 2000 device data and vessel parameters
+- AIS parsing and tracking for vessel targets and AtoN marks
+- Web-based configuration and diagnostics interface
+- Built-in dashboard with map view, instruments, engine data, tank status, and system status
+- Source arbitration and preferred-device selection for competing sensors
+- Demo mode for testing without a live NMEA 2000 network
+
+---
+
+## Project Layout
+
+- [release/](release/) — prebuilt firmware binaries for different board variants
+- [docs/](docs/) — installation guide, user manual, and hardware profile documentation
 
 
-## Installation & Quick Start
+---
 
-This repository is a distribution point for pre-compiled binaries (Freeware). Source code is not hosted here.
+## Quick Start
 
-1. Navigate to the `release/` directory in this repository.
-2. Download the `factory_*.bin` file that matches your specific microcontroller architecture.
-3. Open the `docs/` directory and follow the **Installation Guide** for detailed wiring diagrams and flashing instructions using standard ESP tools.
+1. Go to [release/](release/) and download the correct firmware binary for your hardware.
+2. Flash the board using the browser-based ESP tool or your preferred ESP32 flashing method.
+3. Connect to the gateway WiFi access point created by the device.
+4. Open the local web UI at http://192.168.4.1
+5. Configure WiFi, CAN pins, and output services from the web interface.
 
+For detailed installation and wiring instructions, use the documents in [docs/](docs/).
 
-## Disclaimer and License
+---
 
-This software is provided as Freeware for personal, non-commercial use on private vessels. 
+## Documentation
 
-**CRITICAL MARINE SAFETY NOTICE:** This software is provided "AS IS" and is NOT a certified navigational device. The author assumes no liability for any direct or indirect damages, navigation errors, vessel grounding, or hardware failures arising from the use of this firmware. Maritime navigation requires certified equipment and constant human oversight. 
+The project documentation is located in [docs/](docs/) and includes:
 
-**By downloading and using this firmware, you acknowledge that you use it entirely at your own risk.**
+- [docs/Hardware_profiles.md](docs/Hardware_profiles.md) — hardware variants, pinouts, and board-specific notes
+- [docs/N2K multi protocal  gateway  Installation Guide.md](docs/N2K%20multi%20protocal%20%20gateway%20%20Installation%20Guide.md) — flashing, WiFi setup, CAN wiring, first boot, and basic installation flow
+- [docs/N2K multi protocal  gateway user_manual.md](docs/N2K%20multi%20protocal%20%20gateway%20user_manual.md) — operational manual describing dashboard, configuration, Signal K, AIS, and output streams
 
-Please see the `LICENSE.md` file for the full End-User License Agreement.
+---
+
+## Important Notes
+
+- This is an open-source community project, not a certified marine safety device.
+- The gateway is intended as a marine integration tool and should not be treated as a primary navigational safety system.
+- Always use qualified marine equipment and keep human supervision during navigation.
+
+---
+
+## License
+
+Please see [LICENSE.md](LICENSE.md) for the full licensing terms.

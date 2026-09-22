@@ -86,19 +86,6 @@ If you ever lose access to the device or configure the wrong Wi-Fi settings, you
 * Press and hold the physical button connected to **PIN 0 (BOOT button)** for **6 to 8 seconds**.  
 * The device will wipe its configuration, reboot, and broadcast its original Access Point network again.
 
-Step 9: Demo Mode (N2K Generator)  
-The gateway features a built-in Demo Mode that allows you to test the interface without being connected to a physical vessel network. You can enable it by navigating to the Config \> N2K GENERATOR MODE (DEMO) tab. Once activated, an internal generator will simulate NMEA 2000 network traffic.
-
-Important Note on GPS Sources & Data Selection: The generator intentionally simulates two different devices broadcasting GPS positions at the same time (a GPSMAP 8412xsv and an AIS700 Transceiver). This is designed specifically to let you test the gateway's source selection feature.
-
-Because there are two active GPS sources, the position on your screen might fluctuate or "jump". To fix this and see how data prioritization works:
-
-Click the N2K icon at the top of the web interface.
-
-Select your preferred GPS data source from the list.
-
-Note: The internal generator simulates standard navigation data but does NOT generate AIS targets (other vessels).
-
 ### **Step 9: Demo Mode (N2K Generator)**
 
 The gateway features a built-in Demo Mode that allows you to test the interface without being connected to a physical vessel network. You can enable it by navigating to the **Config \> N2K GENERATOR MODE (DEMO)** tab. Once activated, an internal generator will simulate NMEA 2000 network traffic.
@@ -110,7 +97,7 @@ Because there are two active GPS sources, the position on your screen might fluc
 1. Click the **N2K** icon at the top of the web interface.  
 2. Select your preferred GPS data source from the list.
 
-*Note: The internal generator simulates standard navigation data but does NOT generate AIS targets (other vessels).*
+*Note: The internal generator simulates standard navigation data and can be used to validate routing and prioritization logic; it is not a substitute for a live AIS source on a real vessel network.*
 
 ### **Step 10: Supported Protocols & Services**
 
@@ -125,7 +112,8 @@ The following services are available:
 *Current Limitations / Known Issues:* As an evolving open-source project, please be aware of the following developmental constraints:
 
 * **Signal K Security:** Authentication tokens are pending. The stream is currently unsecured for all local network users.  
-* **Signal K AIS:** Translation of AIS data is not yet functional in Signal K. *(Note: AIS remains fully functional via the Actisense Binary or NMEA 0183 output\!)*.
+* **Signal K AIS/AtoN:** AIS vessel targets and AIS Aids to Navigation are supported through the Signal K publishing path when the AIS mask is enabled and the Signal K stream is active. Use the appropriate vessel/aton context in clients that support those objects.  
+* **Output-specific behavior:** The exact set of generated values depends on the connected NMEA 2000 data and on which output masks are enabled in the web UI.
 
 ## 
 

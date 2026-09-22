@@ -129,7 +129,9 @@ Actisense Binary is a raw binary protocol commonly used in Windows-based navigat
 
 ### AIS Processing
 
-The system includes AIS parsing and filtering functions. It can process incoming AIS targets, maintain a local target database, apply refresh logic based on range and priority, and expose tracked ships for display and client integration.
+The system includes AIS parsing and filtering functions for both regular vessel targets and AIS Aids to Navigation (AtoN). It can process incoming AIS targets, maintain a local target database, apply refresh logic based on range and priority, and expose tracked ships and navigation marks for display and client integration.
+
+The same AIS processing pipeline is used for vessel reports and AtoN reports, with the Signal K output being routed to the appropriate context (`vessels.urn:mrn:imo:mmsi:<MMSI>` for vessels and `aton.urn:mrn:imo:mmsi:<MMSI>` for AtoN marks).
 
 ### Web User Interface
 
@@ -569,7 +571,9 @@ Disabling parameters that are not needed by connected Signal K clients reduces u
 
 > **Known limitation:** as an evolving open-source project, authentication tokens are not yet implemented, so the Signal K stream is currently unsecured for any client on the local network (see also the [Signal K Token](#signal-k-and-identity-settings) field).
 
-AIS targets are fully translated to Signal K deltas, each addressed to its own vessel context (`vessels.urn:mrn:imo:mmsi:<MMSI>`). Depending on what has changed and is due for an update, a target's delta may include dynamic values (position, speed over ground, course over ground) and/or static values (name, MMSI, VHF call sign, length, beam, draft, AIS class A/B, and ship type or Aid-to-Navigation type). AIS targets are subject to the same zone-based throttling described in [AIS Settings](#ais-settings), so update frequency depends on a target's distance from the vessel.
+AIS targets are fully translated to Signal K deltas and published using the appropriate Signal K context for each object: normal vessel targets use `vessels.urn:mrn:imo:mmsi:<MMSI>`, while AIS Aids to Navigation (AtoN) use `aton.urn:mrn:imo:mmsi:<MMSI>`. Depending on what has changed and is due for an update, a target's delta may include dynamic values (position, speed over ground, course over ground) and/or static values (name, MMSI, VHF call sign, length, beam, draft, AIS class A/B, and ship type or Aid-to-Navigation type). AIS targets are subject to the same zone-based throttling described in [AIS Settings](#ais-settings), so update frequency depends on a target's distance from the vessel.
+
+This applies equally to AtoN marks: they are handled by the same AIS processing and Signal K publishing path, but are emitted under the dedicated `aton` context rather than the vessel context.
 
 ### NMEA 0183 Output
 
