@@ -5,7 +5,7 @@ This short guide will show you how to set up your wireless NMEA 2000 gateway you
 Step 1: What exactly should you buy? (Shopping List)
 Gateway board: Buy the Waveshare ESP32-S3 RS485-CAN. 
 <p>
-  <img src="images/esp32-s3-rs485-can-1.png" alt="Waveshare ESP32-S3 RS485-CAN" height="400">
+  <img src="../images/esp32-s3-rs485-can-1.png" alt="Waveshare ESP32-S3 RS485-CAN" height="400">
 </p>
 It is an excellent choice for sailors. Why? It has a built-in CAN interface and an integrated power converter (7-36V). This means you can power it directly from the NMEA 2000 cable!
 
@@ -29,7 +29,7 @@ Wait until the progress bar reaches 100%. Done! The gateway is programmed, and y
 Step 3: Connecting it on the boat (Only 4 wires)
 
 <p>
-  <img src="images/esp32-s3-rs485-can-2.png" alt="NMEA2000" height="400">
+  <img src="../images/esp32-s3-rs485-can-2.png" alt="NMEA2000" height="400">
 </p>
 
 It is time to connect the gateway to the boat's backbone. You will do this using the screw terminals on the board; a small screwdriver is all you need.
@@ -53,7 +53,7 @@ Now simply plug the cable into an available NMEA 2000 T-connector on the boat. T
 Step 4: Disabling the Gateway's Termination Resistor
 
 <p>
-  <img src="images/ESP32-S3-CAN-2CH-details-intro.png" alt="Waveshare ESP32-S3 RS485-CAN" height="400">
+  <img src="../images/ESP32-S3-CAN-2CH-details-intro.png" alt="Waveshare ESP32-S3 RS485-CAN" height="400">
 </p>
 
 If the gateway is connected to the NMEA 2000 backbone through a drop cable and a T-connector, so it must not add a third termination resistor to the network. Locate the termination-resistor jumper, marked as item 8 in the accompanying board diagram, and set it to disconnect the board's built-in 120 Ω resistor. The NMEA 2000 backbone must have exactly two 120 Ω terminators, one at each physical end. Do not add a separate terminator at the gateway. 
