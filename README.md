@@ -1,8 +1,8 @@
 # ESP32 NMEA2000 Multiprotocol Gateway
 
 <p>
-  <img src="images/tablet_pc/IMG_0009.png" alt="tablets & PC" height="400">
-  <img src="images/smartphone/IMG_2465.png" alt="smartphone" height="200">
+  <img src="../images/tablet_pc/IMG_0009.png" alt="tablets & PC" height="400">
+  <img src="../images/smartphone/IMG_2465.png" alt="smartphone" height="200">
 </p>
 
 This project is an ESP32-based marine gateway for NMEA 2000 networks. It listens to the CAN bus, decodes navigation and engine data, and publishes it over multiple interfaces such as Signal K, NMEA 0183, and Actisense Binary. It also includes AIS parsing, filtering, and display functions for vessel targets and AIS Aids to Navigation (AtoN).
