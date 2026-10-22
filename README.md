@@ -57,7 +57,7 @@ The project documentation is located in [docs/](docs/) and includes:
 
 ## Important Notes
 
-- This is an open-source community project, not a certified marine safety device.
+- This is not a certified marine safety device.
 - The gateway is intended as a marine integration tool and should not be treated as a primary navigational safety system.
 - Always use qualified marine equipment and keep human supervision during navigation.
 
