@@ -763,7 +763,7 @@ The gateway provides useful operational insight, but marine navigation remains t
 
 ### License and Legal Notice
 
-This is a community-driven, open-source project, provided as freeware for personal, non-commercial use on private vessels. It is **not** a certified marine instrument and is **not** intended for critical safety or primary navigation tasks. All software and hardware information is shared "AS IS," without warranties of any kind.
+This is a community-driven, provided as freeware for personal, non-commercial use on private vessels. It is **not** a certified marine instrument and is **not** intended for critical safety or primary navigation tasks. All software and hardware information is shared "AS IS," without warranties of any kind.
 
 By downloading, installing, or using this firmware, the operator acknowledges and accepts that:
 
